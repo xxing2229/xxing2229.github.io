@@ -1,0 +1,91 @@
+<html>
+<head>
+	<meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="https://vn4707.github.io/jquery1.min.js"></script>
+	<script type="text/javascript" src="https://vn4707.github.io/sweetalert.min.js"></script>
+	<script type="text/javascript" src="https://vn4707.github.io/jwplayer.js"></script>
+	<script type="text/javascript">jwplayer.key="ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=";</script>
+	<style type="text/css" media="screen">html,body{padding:0;margin:0;height:100%}#encrpyt{width:100%!important;height:100%!important;overflow:hidden;background-color:#000}</style>
+</head>
+<body>
+<div id="encrpyt">
+<script src="https://vn4707.github.io/plyr.js"></script>
+<script src="https://vn4707.github.io/hls@latest.js"></script>
+<link rel="stylesheet" href="https://vn4707.github.io/plyr1.css" />
+<video style="width: 100%; height: 100%" id="player" controls crossoriginplaysinline poster="https://i.imgur.com/tgVX4oU.jpg" >
+      <source src="https://23949030.fs1.hubspotusercontent-na1.net/hubfs/23949030/RKvgddtK-PYKmlsZf.mp4" type="video/mp4" size="1080">  
+  </video>
+<script>
+  const player = new Plyr('video', {
+    /* ads: {
+      enabled: true, 
+      tagUrl: ''
+    }, */
+    speed: {
+      selected: 1, 
+      options: [0.5, 0.75, 1]
+   },
+   fullscreen: {
+      enabled: true,
+
+      fallback: true,
+
+      iosNative: true,
+
+      container: null
+
+    },
+
+    quality: {
+
+      default: 1080
+
+    },
+
+    seekTime: 5,
+
+    i18n: {
+
+      rewind: 'Rewind 5s',
+
+      fastForward: 'Forward 5s',
+
+      captions: 'Phụ đề',
+
+      disabled: 'Tắt',
+
+      quality: 'Chất lượng',
+
+      speed: 'Tốc độ',
+
+      normal: 'Bình thường',
+
+    },
+
+    controls: [
+      'play-large', // The large play button in the center
+      'play', // Play/pause playback
+      'progress', // The progress bar and scrubber for playback and buffering
+      'current-time', // The current time of playback
+     'mute', // Toggle mute
+      'volume', // Volume control
+      'settings', // Settings menu     
+      'fullscreen', // Toggle fullscreen
+    ],
+    captions: {
+      active: true, 
+      language: 'zh_hant', 
+      update: true,
+    }
+  });
+  window.player = player;
+  player.on('play', (event) => {
+    $('#player-lang-wrapper').removeClass('lang-visible');
+    $('#player-lang-wrapper').addClass('lang-hidden');
+  });
+  player.on('pause', (event) => {
+   $('#player-lang-wrapper').removeClass('lang-hidden');
+    $('#player-lang-wrapper').addClass('lang-visible');
+ });
+  </script>
